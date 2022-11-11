@@ -115,4 +115,89 @@ namespace singly_linked_list
                 return false;
         }
     }
+    class Program
+    {
+        //check wheter the specified node is present in the list or not
+
+        static void Main(string[] args)
+        {
+            List obj = new List();
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("\nMENU");
+                    Console.WriteLine("1. Add a record to the list ");
+                    Console.WriteLine("2. Delete a record from the list ");
+                    Console.WriteLine("3. View all the records in the list ");
+                    Console.WriteLine("4. Search a record in the list ");
+                    Console.WriteLine("5. EXIT ");
+                    Console.Write("\nEnter your choice (1-5) :  ");
+                    char ch = Convert.ToChar(Console.ReadLine());
+                    switch (ch)
+                    {
+                        case '1':
+                            {
+                                obj.addNote();
+                            }
+                            break;
+                        case '2':
+                            {
+                                if (obj.ListEmpty())
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;  
+                                }
+                                Console.Write("\nENter the roll number of" + " the student whose records is to be delated : ");
+                                int nim = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.delNode(nim) == false)
+                                    Console.WriteLine("\nRecord not found.");
+                                else
+                                    Console.WriteLine("Record with roll number " + nim + " Delated");
+                            }
+                            break;
+                        case '3':
+                            {
+                                obj.traverse();
+                            }
+                            break ;
+                        case '4':
+                            {
+                                if (obj.ListEmpty() == true)
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break ;
+                                }
+                                Node previous, current;
+                                previous = current = null;
+                                Console.Write("\nEnter the roll number of the " + "student whose record is to be searched : ");
+                                int num = Convert.ToInt32(Console.ReadLine());
+                                if (obj.Search(num, ref previous, ref current) == false)
+                                    Console.WriteLine("\n Record not found.");
+                                else
+                                {
+                                    Console.WriteLine("\nRecord found");
+                                    Console.WriteLine("\nRoll number: " + current.rollNumber);
+                                    Console.WriteLine("\nName: " + current.name);
+                                }
+                            }
+                            break;
+                        case '5':
+                            return;
+                        default:
+                            {
+                                Console.WriteLine("\nInvalid Option");
+                                break;
+                            }
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("\nCheck for the value entered ");
+                }
+            }
+        }
+    }
 }
