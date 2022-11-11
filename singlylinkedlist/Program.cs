@@ -6,6 +6,6 @@ namespace singly_linked_list
 
     class Node
     {
-
+        
     }
 }
