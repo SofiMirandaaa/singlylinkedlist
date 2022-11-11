@@ -56,6 +56,29 @@ namespace singly_linked_list
                 previous = current;
                 current = current.next;
             }
+
+            /*once the above for loop is executed, prev, and current are positioned in such a  manner that the position for the new node*/
+            newnode = current;
+            previous.next = newnode;
+
+        }
+        public void traverse()
+        {
+            if (ListEmpty())
+            {
+                Console.WriteLine("\nList is empt.\n");
+            }
+            else
+            {
+                Console.WriteLine("\nthe records in the list are : ");
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
+
+                        Console.Write(currentNode.rollNumber + " " + currentNode.name + "\n");
+
+                Console.WriteLine();
+            }
+
         }
     }
 }
