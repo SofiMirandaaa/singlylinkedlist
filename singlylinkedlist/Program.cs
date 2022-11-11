@@ -107,6 +107,12 @@ namespace singly_linked_list
             else
                 return (true);
         }
-
+        public bool ListEmpty()
+        {
+            if (START == null)
+                return true;
+            else
+                return false;
+        }
     }
 }
