@@ -17,5 +17,9 @@ namespace singly_linked_list
         {
             START = null;
         }
+        public void  addNote() //add node in the list
+        {
+
+        }
     }
 }
